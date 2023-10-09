@@ -1,25 +1,26 @@
 #include <stdlib.h>
-#include <stddef.h>
-#include <stdio.h>
 
-int	ft_strlen(const char *s)
+size_t	ft_strlen(const char *str)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
-	while (s[i])
+	while (str[i])
 		i++;
 	return (i);
 }
 
 int	ft_isdigit(int c)
 {
-	return ((c >= 48 && c <= 52));
+	if (!(c > '0' && c < '5'))
+		return (0);
+	return (1);
 }
-
 int	ft_isspace(int c)
 {
-	return (c == 32);
+	if (!(c == ' '))
+		return (0);
+	return (1);
 }
 
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
@@ -38,32 +39,6 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 		i++;
 	}
 	return (0);
-}
-
-char	*ft_strnstr(const char *big, const char *little, size_t len)
-{
-	const char	*big_ptr;
-	const char	*little_ptr;
-	size_t		i;
-
-	big_ptr = big;
-	little_ptr = little;
-	i = 0;
-	if (little_ptr[0] == '\0')
-		return ((char *)big_ptr);
-	while (big_ptr[i] != '\0' && i < len)
-	{
-		if (big_ptr[i] == little_ptr[0])
-		{
-			if (ft_memcmp(&big_ptr[i], little_ptr, ft_strlen(little_ptr)) == 0)
-			{
-				if (i + ft_strlen(little_ptr) <= len)
-					return ((char *)&big_ptr[i]);
-			}
-		}
-		i++;
-	}
-	return (NULL);
 }
 
 char	*ft_strjoin(char *s1, char const *s2)

@@ -149,7 +149,6 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	}
 	return (NULL);
 }
-#include <stddef.h>
 
 char *ft_strncpy(char *dest, const char *src, size_t n) {
     char *original_dest = dest; // Store the original destination pointer

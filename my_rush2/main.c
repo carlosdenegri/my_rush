@@ -7,7 +7,8 @@
 int ft_valid_arg(const char *arg);
 char *ft_sort_str(const char *str);
 int ft_poss(char *str);
-
+void extract_rows(char *str, size_t start);
+void extract_cols(char *str, size_t start);
 
 int main(int argc, char **argv)
 {
@@ -36,10 +37,10 @@ int main(int argc, char **argv)
 	extract_rows(sorted, 0);
 
 	start = 0;
-	while (str[start] != 'D')
+	while (sorted[start] != 'D')
 		start++;
 	start = start + 4;
-	extract_cols(str, start);
+	extract_cols(sorted, start);
 
 	// free (sorted);
     return (0);

@@ -87,3 +87,72 @@ char	*ft_strjoin(char *s1, char const *s2)
 	ptr[i] = '\0';
 	return (ptr);
 }
+void	ft_bzero(void *s, size_t n)
+{
+	size_t	i;
+	char	*ptr;
+
+	i = 0;
+	ptr = s;
+	while (i < n)
+	{
+		ptr[i] = '\0';
+		i++;
+	}
+}
+void	*ft_calloc(size_t nmemb, size_t size)
+{
+	char	*ptr;
+
+	ptr = malloc(nmemb * size);
+	if (ptr == NULL)
+		return (NULL);
+	ft_bzero(ptr, nmemb * size);
+	return (ptr);
+}
+char	*ft_strnchr(const char *s, int c, int n, size_t start)
+{
+	int	i;
+
+	i = 0 + start;
+	while (s[i] != '\0' && s[i] != (char)c && i <= n)
+		i = i + 4;
+	if (s[i] == (char)c)
+		return ((char *)&s[i]);
+	return (0);
+}
+
+int	ft_strncmp(const char *s1, char *s2, size_t n)
+{
+	unsigned int	i;
+
+	i = 0;
+	while ((s1[i] || s2[i]) && (i < n))
+	{
+		if ((unsigned char)s1[i] < (unsigned char)s2[i])
+			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+		if ((unsigned char)s1[i] > (unsigned char)s2[i])
+			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+		i++;
+	}
+	return (0);
+}
+
+char *ft_strncpy(char *dest, const char *src, int start, int n) 
+{
+    char *original_dest = dest;
+	int i;
+    
+    i = 0;
+	while (i < n && src[i + start] != '\0')
+	{
+        dest[i] = src[i + start];
+		i++;
+    }
+	while (i < n)
+	{
+		dest[i] = '\0';
+		i++;
+	}
+	return original_dest;
+}

@@ -136,6 +136,11 @@ void	ft_check_row(char *str, char *substr, int i)
 	int x = ft_strlen(str) - (third_row - str);
 	int y = ft_strlen(str) - (second_row - str);
 	int z = ft_strlen(str) - (first_row - str);
+	// printf("%d\n", (z - y));
+	// printf("%d\n", (y - x));
+	// printf("%d\n", (x - w));
+	// printf("%d\n", w);
+
 	char *result1 = ft_strnchr(first_row, substr[0], z - y, i);
 	char *result2 = ft_strnchr(second_row, substr[1], y - x, i);
 	char *result3 = ft_strnchr(third_row, substr[2], x - w, i);
@@ -215,7 +220,7 @@ void extract_rows(char *str, size_t start)
 
 
 
-void extract_cols(char *str, int start) 
+void extract_cols(char *str, size_t start) 
 {
     char substr[5]; // To store the extracted 4 digits
 
@@ -244,50 +249,50 @@ void extract_cols(char *str, int start)
 		printf("\n\n");
 }
 
-#include <stdio.h>
-#include <string.h>
+// #include <stdio.h>
+// #include <string.h>
 
-int main()
-{
-	// int i = 0;
-	// int j = 4;
-    char *str = "314232413412241314232143AAAA124313422341BBBB31243214CCCC423141324312DDDD132421342314EEEE423141324312FFFF314232413412241314232143GGGG314232413412241314232143";
-	int start;
-	// char *first_col_ptr = "AAAA";
-	// char *second_col_ptr = "BBBB";
-	// char *third_col_ptr = "CCCC";
-    // char *first_ptr = "DDDD";
-    // char *second_ptr = "EEEE";
-    // char *third_ptr = "FFFF";
-    // char *fourth_ptr = "GGGG";
-    // To store the first 4 characters
-	// char *first_row = (ft_strnstr(str, first_ptr, ft_strlen(str)));
+// int main()
+// {
+// 	// int i = 0;
+// 	// int j = 4;
+//     char *str = "314232413412241314232143AAAA124313422341BBBB31243214CCCC423141324312DDDD132421342314EEEE423141324312FFFF314232413412241314232143GGGG314232413412241314232143";
+// 	int start;
+// 	// char *first_col_ptr = "AAAA";
+// 	// char *second_col_ptr = "BBBB";
+// 	// char *third_col_ptr = "CCCC";
+//     // char *first_ptr = "DDDD";
+//     // char *second_ptr = "EEEE";
+//     // char *third_ptr = "FFFF";
+//     // char *fourth_ptr = "GGGG";
+//     // To store the first 4 characters
+// 	// char *first_row = (ft_strnstr(str, first_ptr, ft_strlen(str)));
 
-	extract_rows(str, 0);
+// 	extract_rows(str, 0);
 
-	start = 0;
-	while (str[start] != 'D')
-		start++;
-	start = start + 4;
-	extract_cols(str, start);
-    // ft_strncpy(substr, str, i, j); // Extract the first 4 characters
-	// substr[4] = '\0'; // Null-terminate the substring
-	// int len = ft_strlen(substr);
-    // printf("%s\n", substr);
-	// printf("%d\n", len);
-	// const char *first_col = (ft_strnstr(str, first_col_ptr, ft_strlen(str)));
-	// const char *second_col = (ft_strnstr(str, second_col_ptr, ft_strlen(str)));
-	// const char *third_col = (ft_strnstr(str, third_col_ptr, ft_strlen(str)));
-    // const char *first_row = (ft_strnstr(str, first_ptr, ft_strlen(str)));
-    // const char *second_row = (ft_strnstr(str, second_ptr, ft_strlen(str)));
-    // const char *third_row = (ft_strnstr(str, third_ptr, ft_strlen(str)));
-    // const char *fourth_row = (ft_strnstr(str, fourth_ptr, ft_strlen(str)));
-	// int a = ft_strlen(str) - (first_col - str);
-	// int b = ft_strlen(str) - (second_col - str);
-	// int c = ft_strlen(str) - (third_col - str);
-    // int w = ft_strlen(str) - (fourth_row - str);
-    // int x = ft_strlen(str) - (third_row - str);
-    // int y = ft_strlen(str) - (second_row - str);
+// 	start = 0;
+// 	while (str[start] != 'D')
+// 		start++;
+// 	start = start + 4;
+// 	extract_cols(str, start);
+//     // ft_strncpy(substr, str, i, j); // Extract the first 4 characters
+// 	// substr[4] = '\0'; // Null-terminate the substring
+// 	// int len = ft_strlen(substr);
+//     // printf("%s\n", substr);
+// 	// printf("%d\n", len);
+// 	// const char *first_col = (ft_strnstr(str, first_col_ptr, ft_strlen(str)));
+// 	// const char *second_col = (ft_strnstr(str, second_col_ptr, ft_strlen(str)));
+// 	// const char *third_col = (ft_strnstr(str, third_col_ptr, ft_strlen(str)));
+//     // const char *first_row = (ft_strnstr(str, first_ptr, ft_strlen(str)));
+//     // const char *second_row = (ft_strnstr(str, second_ptr, ft_strlen(str)));
+//     // const char *third_row = (ft_strnstr(str, third_ptr, ft_strlen(str)));
+//     // const char *fourth_row = (ft_strnstr(str, fourth_ptr, ft_strlen(str)));
+// 	// int a = ft_strlen(str) - (first_col - str);
+// 	// int b = ft_strlen(str) - (second_col - str);
+// 	// int c = ft_strlen(str) - (third_col - str);
+//     // int w = ft_strlen(str) - (fourth_row - str);
+//     // int x = ft_strlen(str) - (third_row - str);
+//     // int y = ft_strlen(str) - (second_row - str);
     // int z = ft_strlen(str) - (first_row - str);
 	// printf("%ld\n", ft_strlen(str));	
 	// printf("%d\n", (z - y));
@@ -320,8 +325,8 @@ int main()
 //     } else {
 //         printf("Substring not found.\n");
 //     }
-    return 0;
-}
+//     return 0;
+// }
 
 // char	check_str(char substr, char *str, int i, int j)
 // {
