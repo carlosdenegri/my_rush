@@ -1,0 +1,1 @@
+run -I./include -I./src -o main ./src/main.c ./rush.a ./libft/libft.a
